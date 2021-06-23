@@ -1,15 +1,22 @@
 <div class="container">
-    <div class="row">
-      <div *ngFor="let card of list"class="col-4">
-        <div class="card" style="width: 18rem;margin-top: 20px;">
-            <img class="card-img-top" src="{{card.url}}" alt="Card image cap" style="height: 150px;width: 150px; margin: auto;">
-            <div class="card-body">
-              <h5 class="card-title">{{card.title}}</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-      </div>           
+  <div class="row">
+    <div *ngFor="let card of list" class="col-4">
+      <div class="card text-white card-has-bg click-col" style="background-image:url({{card.url}});">
+        <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+       <div class="card-img-overlay d-flex flex-column">
+        <div class="card-body">
+           <small class="card-meta mb-2">Thought Leadership</small>
+           <h4 class="card-title mt-0 "><a class="text-white" herf="#">{{card.title}}</a></h4>
+          <small><i class="far fa-clock"></i> {{card.date}}</small>
+         </div>
+         <div class="card-footer">
+          <div class="media">
+ <div class="media-body">
+ </div>
+</div>
+         </div>
+       </div>
+     </div></div>
     </div>
-    
   </div>
+

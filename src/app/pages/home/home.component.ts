@@ -13,8 +13,9 @@ export class HomeComponent implements OnInit {
   constructor(private http:HttpClient,
     private functionService:FunctionsService) { }
 
-  ngOnInit(): void {
-    this.loadPictures()
+  async ngOnInit(): Promise<void> {
+    await this.functionService.getDate()
+    await this.loadPictures()
   }
 getdate(){
   let date=new Date()
@@ -30,5 +31,7 @@ public async loadPictures() {
     this.list = null; //vista
   }
 }
-
+show(card:card){
+console.log(card)
+}
 }

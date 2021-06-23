@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { card } from 'src/app/model/card';
 import { FunctionsService } from 'src/app/services/functions.service';
+import { UtilsService } from 'src/app/services/utils.service';
 
 @Component({
   selector: 'app-home',
@@ -11,37 +12,40 @@ import { FunctionsService } from 'src/app/services/functions.service';
 })
 export class HomeComponent implements OnInit {
   public list: Array<card> = [];
+  numberpictures = 0
+  
   constructor(private http: HttpClient,
     private functionService: FunctionsService,
-    private router:Router) { }
+    private router: Router,
+    private utils: UtilsService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.functionService.getDate()
-    if(this.functionService.list.length==0){
-      await this.loadPictures()
-    }
-    
+    do {
+      const date: Date = new Date();
+      const dateurl: Date = new Date();
+      dateurl.setDate(date.getDate() - this.numberpictures)
+      this.numberpictures++
+      console.log(this.numberpictures)
+      this.loadPictures(this.utils.getDate(dateurl))
+
+    } while (this.numberpictures < 6);
+
+
+
   }
 
   navigateWithState(card) {
-    this.router.navigateByUrl('detail', {state:{card}});
-  }
-
-  getdate() {
-    let date = new Date()
-
+    this.router.navigateByUrl('detail', { state: { card } });
   }
 
 
-  public async loadPictures() {
-    try {
-      this.list = await this.functionService.getPicture();
-      console.log(this.list)
-    } catch (err) {
-      this.list = null; //vista
-    }
-  }
-  show(card: card) {
-    console.log(card)
+
+
+  public loadPictures(date) {
+    this.functionService.getPicture(date).subscribe(data => {
+      this.list.push(data);
+    }, err => {
+      console.log(err);
+    })
   }
 }

@@ -11,13 +11,13 @@ import { card } from 'src/app/model/card';
 })
 export class DetailComponent implements OnInit {
   card: Observable<card>;
-  
-  constructor(public activatedRoute: ActivatedRoute) {}
-  
+
+  constructor(public activatedRoute: ActivatedRoute) { }
+
   ngOnInit() {
     this.card = this.activatedRoute.paramMap
       .pipe(map(() => window.history.state.card))
-      console.log(this.card)
+    console.log(this.card)
   }
 
 }

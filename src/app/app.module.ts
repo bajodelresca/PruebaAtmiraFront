@@ -8,7 +8,7 @@ import { DetailComponent } from './pages/detail/detail.component';
 import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'detail/:card', component: DetailComponent },
+  { path: 'detail', component: DetailComponent },
 
 ]
 @NgModule({

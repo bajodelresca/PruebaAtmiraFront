@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { card } from 'src/app/model/card';
 
 @Component({
@@ -8,15 +10,14 @@ import { card } from 'src/app/model/card';
   styleUrls: ['./detail.component.css']
 })
 export class DetailComponent implements OnInit {
-card:string
-  constructor(private activatedRouter: ActivatedRoute) {
-    this.activatedRouter.params.subscribe(parametros => {
-      this.card = parametros['card'];      
-    });
-    console.log(this.card)
-   }
-
-  ngOnInit(): void {
+  card: Observable<card>;
+  
+  constructor(public activatedRoute: ActivatedRoute) {}
+  
+  ngOnInit() {
+    this.card = this.activatedRoute.paramMap
+      .pipe(map(() => window.history.state.card))
+      console.log(this.card)
   }
 
 }

@@ -13,13 +13,15 @@ import { UtilsService } from 'src/app/services/utils.service';
 export class HomeComponent implements OnInit {
   public list: Array<card> = [];
   numberpictures = 0
-  
+  load = false;
+
   constructor(private http: HttpClient,
     private functionService: FunctionsService,
     private router: Router,
     private utils: UtilsService) { }
 
   async ngOnInit(): Promise<void> {
+    this.showloading()
     do {
       const date: Date = new Date();
       const dateurl: Date = new Date();
@@ -29,7 +31,9 @@ export class HomeComponent implements OnInit {
       this.loadPictures(this.utils.getDate(dateurl))
 
     } while (this.numberpictures < 6);
-
+    setTimeout(() => {
+      this.hideloading()
+    }, 1000);
 
 
   }
@@ -48,4 +52,17 @@ export class HomeComponent implements OnInit {
       console.log(err);
     })
   }
+
+  //_______________________________________________MOSTRAMOS EL LOADING
+
+  showloading() {
+    this.load = true
+    console.log("Mostrando")
+  }
+  //_______________________________________________OCULTAMOS EL LOADING
+  hideloading() {
+    this.load = false
+    console.log("ocultando")
+  }
+
 }

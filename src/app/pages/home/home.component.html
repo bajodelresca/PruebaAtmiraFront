@@ -1,26 +1,30 @@
+<div *ngIf="load" id="loading">
+
+    <img id="loading-image" src="assets/loading.gif" alt="Loading..." />
+
+
+</div>
 <div class="background">
-  <div class="container">
-    <div class="row" style="padding-top: 20px;">
-      <div *ngFor="let card of list" class="col-4">
-        <div class="card text-white card-has-bg click-col" style="background-image:url({{card.url}});"
-          (click)="navigateWithState(card)">
-          <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street"
-            alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
-          <div class="card-img-overlay d-flex flex-column">
-            <div class="card-body">
-              <small class="card-meta mb-2">{{card.copyright}} ?? Desconocido</small>
-              <h4 class="card-title mt-0 "><a class="text-white" herf="#">{{card.title}}</a></h4>
-              <small><i class="far fa-clock"></i> {{card.date}}</small>
-            </div>
-            <div class="card-footer">
-              <div class="media">
-                <div class="media-body">
+    <div class="container">
+        <div class="row" style="padding-top: 20px;">
+            <div *ngFor="let card of list" class="col-4">
+                <div class="card text-white card-has-bg click-col" style="background-image:url({{card.url}});" (click)="navigateWithState(card)">
+                    <img class="card-img d-none" src="https://source.unsplash.com/600x900/?tech,street" alt="Goverment Lorem Ipsum Sit Amet Consectetur dipisi?">
+                    <div class="card-img-overlay d-flex flex-column">
+                        <div class="card-body">
+                            <small class="card-meta mb-2">{{card.copyright}}</small>
+                            <h4 class="card-title mt-0 "><a class="text-white" herf="#">{{card.title}}</a></h4>
+                            <small><i class="far fa-clock"></i> {{card.date}}</small>
+                        </div>
+                        <div class="card-footer">
+                            <div class="media">
+                                <div class="media-body">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>

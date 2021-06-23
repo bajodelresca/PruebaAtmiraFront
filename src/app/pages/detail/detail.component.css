@@ -1,0 +1,37 @@
+.imagebox {
+    text-align: center;
+}
+
+.backbutton {
+    top: 75px;
+    left: 25px;
+    width: 35px;
+    height: 35px;
+    position: fixed;
+    fill: white;
+}
+
+.textbox {
+    text-align: center;
+    width: 60%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 30px;
+    color: white;
+}
+
+.image {
+    margin-top: 30px;
+    width: 45%;
+    border-radius: 5%;
+}
+
+.background {
+    top: 0%;
+    height: 150vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/assets/space.svg")center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

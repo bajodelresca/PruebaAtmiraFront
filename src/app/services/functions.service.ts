@@ -13,7 +13,7 @@ export class FunctionsService implements OnInit {
   }
 
   getPicture(date) {
-    let apiURL = "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=" + date;
+    let apiURL = "https://api.nasa.gov/planetary/apod?api_key=zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb&date=" + date;
     console.log(apiURL)
     return this.http.get<card>(apiURL);
   }

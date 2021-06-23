@@ -1,1 +1,12 @@
-<p>{{card | async | json}}</p>
+<div class="background">
+    <img class="backbutton" src="./assets/back-butto.svg" (click)="goBack()">
+    <div class="imagebox">
+        <iframe *ngIf="isVideo" class="image" width="420" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY">
+        </iframe>
+        <img *ngIf="isImage" class="image" src="{{card.url}}">
+    </div>
+
+    <div class="textbox">
+        <p>{{card.explanation}}</p>
+    </div>
+</div>

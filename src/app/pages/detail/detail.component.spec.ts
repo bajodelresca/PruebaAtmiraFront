@@ -1,4 +1,7 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { map } from 'rxjs/operators';
 
 import { DetailComponent } from './detail.component';
 
@@ -8,18 +11,31 @@ describe('DetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ DetailComponent ]
+      imports: [
+        HttpClientModule,
+        RouterTestingModule
+      ],
+      declarations: [DetailComponent]
     })
-    .compileComponents();
+      .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(DetailComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
- /*  it('should create', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
-  }); */
+  });
+
+  it('debe  comenzar con el isImage desactivado', () => {
+    expect(component.isImage).toBeFalse();
+  });
+  it('debe  comenzar con el isVideo desactivado', () => {
+    expect(component.isVideo).toBeFalse();
+  });
+  it('debe  comenzar con el card indefinido', () => {
+    expect(component.card).toBeUndefined();
+  });
 });

@@ -12,6 +12,8 @@ export class FunctionsService implements OnInit {
 
   }
 
+
+  //_______________________________________________PETICION A API DE LA NASA
   getPicture(date) {
     let apiURL = "https://api.nasa.gov/planetary/apod?api_key=zdUP8ElJv1cehFM0rsZVSQN7uBVxlDnu4diHlLSb&date=" + date;
     console.log(apiURL)

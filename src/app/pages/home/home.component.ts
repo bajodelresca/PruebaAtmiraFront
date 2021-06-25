@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     private utils: UtilsService) { }
 
   async ngOnInit(): Promise<void> {
+    //_________________________________________________REPETIMOS LA FUNCION 6 VECES
     this.showloading()
     do {
       const date: Date = new Date();
@@ -37,14 +38,14 @@ export class HomeComponent implements OnInit {
 
 
   }
-
+  //___________________________________________________ABRIR PANTALLA DETALLES
   navigateWithState(card) {
     this.router.navigateByUrl('detail', { state: { card } });
   }
 
 
 
-
+  //___________________________________________________USAMOS LA PETICION PARA CARGAR UNA FOTO
   public loadPictures(date) {
     this.functionService.getPicture(date).subscribe(data => {
       this.list.push(data);

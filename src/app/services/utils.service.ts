@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 export class UtilsService {
 
   constructor() { }
-
+  //_______________________________________________________FORMATEAMOS LA FECHA
   getDate(d: Date) {
     var month = (d.getMonth() + 1).toString(),
       day = d.getDate().toString(),
@@ -18,5 +18,7 @@ export class UtilsService {
     console.log(day)
     return year + "-" + month + "-" + day;
   }
+
+
 
 }

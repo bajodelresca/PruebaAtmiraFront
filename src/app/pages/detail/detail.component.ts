@@ -31,6 +31,9 @@ export class DetailComponent implements OnInit {
       this.card
     console.log(this.card)
   }
+
+
+  //______________________________BOTON VOLVER ATRÁS
   goBack(){
     this._location.back();
   }
